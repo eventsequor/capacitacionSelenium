@@ -2,12 +2,7 @@ package com.capacitacion.semillero;
 
 import static org.junit.Assert.assertEquals;
 
-import java.time.Duration;
-import java.util.Date;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import javax.swing.JOptionPane;
 
 import org.junit.After;
 import org.junit.Before;
@@ -52,7 +47,15 @@ public class TestYoutube {
 	}
 
 	@Test
-	public void paginaMercadolibre() {
+	public void paginaEbay() {
+		driver.get("https://www.ebay.com/");
+		WebElement listaOpciones = driver.findElement(By.id("gh-cat"));
+		Select sl = new Select(listaOpciones);
+		sl.selectByVisibleText("Música");
+	}
+
+	@Test
+	public void mercadoLibre() {
 		driver.get("https://www.mercadolibre.com.co/");
 		WebElement category = driver
 				.findElement(By.cssSelector("body > header > div > div.nav-menu > ul > li:nth-child(2) > a"));
